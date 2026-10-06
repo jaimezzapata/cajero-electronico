@@ -1,5 +1,9 @@
 let intentos = 3
 
+function consultarSaldo(){
+    console.log("El saldo es: ")
+}
+
 let user = prompt("Ingrese su usuario: ")
 while (intentos > 0) {
     if (user == "admin") {
