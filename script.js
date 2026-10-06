@@ -27,7 +27,7 @@ while (intentos > 0) {
                 if (opcion == 1) {
                     consultarSaldo(saldo)
                 } else if(opcion == 2){
-                    saldo = repetiretirarDinero(saldo)
+                    saldo = retirarDinero(saldo)
                 }
                 else if(opcion == 5) {
                     repetir = false
