@@ -5,23 +5,33 @@ function consultarSaldo(saldo) {
     console.log("El saldo es: " + saldo)
 }
 
-function retirarDinero(saldo){
+function retirarDinero(saldo) {
     let monto = prompt("Ingrese el valor que desea retirar: ")
-    if(monto > saldo){
+    if (monto > saldo) {
         console.log("El monto a retirar supera el saldo disponible. Intente con valor menor")
     } else {
-        console.log("Retiro exitosos. Su nuevo saldo es " + (saldo-monto))
+        console.log("Retiro exitosos. Su nuevo saldo es " + (saldo - monto))
         return saldo - monto
     }
 }
 
-function transferirDinero(saldo){
+function transferirDinero(saldo) {
     let monto = prompt("Ingrese el valor que desea transferir: ")
-    if(monto > saldo){
+    if (monto > saldo) {
         console.log("El monto a transferir supera el saldo disponible. Intente con valor menor")
     } else {
-        console.log("Transferencia exitosa. Su nuevo saldo es " + (saldo-monto))
+        console.log("Transferencia exitosa. Su nuevo saldo es " + (saldo - monto))
         return saldo - monto
+    }
+}
+
+function consignarDinero(saldo) {
+    let monto = prompt("Ingrese el valor que desea cosignar: ")
+    if (monto <= 0) {
+        console.log("El monto a consignar no es válido. Intente con valor mayor")
+    } else {
+        console.log("Consignación exitosa. Su nuevo saldo es " + (saldo + monto))
+        return parseFloat(saldo) + parseFloat(monto)
     }
 }
 
@@ -36,12 +46,14 @@ while (intentos > 0) {
                 let opcion = prompt("Seleccione: \n1 - Consultar Saldo\n2 - Retirar Dinero\n3 - Transferir Dinero\n4 - Consignar Dinero\n5 - Cerrar Sesión")
                 if (opcion == 1) {
                     consultarSaldo(saldo)
-                } else if(opcion == 2){
+                } else if (opcion == 2) {
                     saldo = retirarDinero(saldo)
-                } else if(opcion == 3){
+                } else if (opcion == 3) {
                     saldo = transferirDinero(saldo)
+                } else if (opcion == 4) {
+                    saldo = consignarDinero(saldo)
                 }
-                else if(opcion == 5) {
+                else if (opcion == 5) {
                     repetir = false
                 }
             }
