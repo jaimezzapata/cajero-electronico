@@ -5,6 +5,16 @@ function consultarSaldo(saldo) {
     console.log("El saldo es: " + saldo)
 }
 
+function retirarDinero(saldo){
+    let monto = prompt("Ingrese el valor que desea retirar: ")
+    if(monto > saldo){
+        console.log("El monto a retirar supera el saldo disponible. Intente con valor menor")
+    } else {
+        console.log("Retiro exitosos. Su nuevo saldo es " + (saldo-monto))
+        return saldo - monto
+    }
+}
+
 let user = prompt("Ingrese su usuario: ")
 while (intentos > 0) {
     if (user == "admin") {
@@ -16,7 +26,10 @@ while (intentos > 0) {
                 let opcion = prompt("Seleccione: \n1 - Consultar Saldo\n2 - Retirar Dinero\n3 - Transferir Dinero\n4 - Consignar Dinero\n5 - Cerrar Sesión")
                 if (opcion == 1) {
                     consultarSaldo(saldo)
-                } else if(opcion == 5) {
+                } else if(opcion == 2){
+                    saldo = repetiretirarDinero(saldo)
+                }
+                else if(opcion == 5) {
                     repetir = false
                 }
             }
