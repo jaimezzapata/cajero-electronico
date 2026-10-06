@@ -15,6 +15,16 @@ function retirarDinero(saldo){
     }
 }
 
+function transferirDinero(saldo){
+    let monto = prompt("Ingrese el valor que desea transferir: ")
+    if(monto > saldo){
+        console.log("El monto a transferir supera el saldo disponible. Intente con valor menor")
+    } else {
+        console.log("Transferencia exitosa. Su nuevo saldo es " + (saldo-monto))
+        return saldo - monto
+    }
+}
+
 let user = prompt("Ingrese su usuario: ")
 while (intentos > 0) {
     if (user == "admin") {
@@ -28,6 +38,8 @@ while (intentos > 0) {
                     consultarSaldo(saldo)
                 } else if(opcion == 2){
                     saldo = retirarDinero(saldo)
+                } else if(opcion == 3){
+                    saldo = transferirDinero(saldo)
                 }
                 else if(opcion == 5) {
                     repetir = false
